@@ -1,0 +1,31 @@
+{
+  "name": "MyZBirdProject",
+  "version": "1.0.0",
+  "description": "my zbird project.",
+  "main": "index.js",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-imagemin": "^5.0.3",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-uglify": "^3.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Cristianoying/MyZBirdProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Cristianoying/MyZBirdProject/issues"
+  },
+  "homepage": "https://github.com/Cristianoying/MyZBirdProject#readme"
+}

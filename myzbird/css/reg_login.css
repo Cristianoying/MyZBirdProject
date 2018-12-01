@@ -1,0 +1,106 @@
+body{
+	background:rgb(250,222,218);
+}
+#main{
+	width:1180px;
+	height:688px;
+	margin:100px auto;
+	background:rgb(250,222,218);
+}
+#main .mainleft{
+	width:728px;
+	height:688px;
+	background:url("../img/bac.png") no-repeat center;
+	float:left;
+}
+#main .mainright{
+	width:416px;
+	height:660px;
+	/*background:#fcede9;*/
+	float:left;
+}
+#main .mainright .mrhead{
+	width:416px;
+	height:37px;
+	margin-top:100px;
+}
+#main .mainright .mrhead .reg{
+	float:left;
+	line-height:37px;
+	width:100px;
+}
+#main .mainright .mrhead .account{
+	float:right;
+	line-height:37px;
+	font-size:12px;
+	cursor:pointer;
+}
+.bottom{
+	height:377px;
+	padding:42px 50px;background:#fcede9;
+}
+.bottom fieldset{
+	border:none;
+}
+.bottom input{
+	padding-left:5px;
+	border:none;
+	width:294px;
+	height:34px;
+	margin:0 0 35px 10px;
+	background:#fff;
+	border-radius:3px;
+}
+.bottom .regyzm{
+	width:138px;
+	height:34px;
+}
+.bottom .btyzm{
+	width:127px;
+	height:34px;
+	background:#feaca0;
+	cursor:pointer;
+	margin-left:24px;
+}
+.bottom .check{
+	width:50px;
+	height:10px;
+	background:#feaca0;
+	border:none;
+}
+.bottom label{
+	font-size:12px;
+}
+.bottom .sub{
+	background:#ff8a81;
+	cursor:pointer;
+}
+
+/* login */
+.bottom .fd2{
+	text-align:center;
+	border-top:1px solid #fff;
+}
+.bottom a{
+	display:inline-block;
+	width:46px;
+	height:46px;
+	margin:30px 10px 10px;
+}
+
+.bottom .fd2 .qq{
+	background: url("../img/qq-btn.jpg") no-repeat;
+}
+.bottom .fd2 .wx{
+	background: url("../img/weixin-btn.jpg") no-repeat;
+}
+.bottom .fd2 .wb{
+	background: url("../img/sina-btn.jpg") no-repeat;
+}
+.bottom .fd2 .zfb{
+	background: url("../img/zhifubao-btn.jpg") no-repeat;
+}
+.bottom .fd2 a::hover{
+	background-position-x:-4px;
+}
+

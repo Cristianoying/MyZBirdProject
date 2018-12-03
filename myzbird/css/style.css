@@ -647,3 +647,130 @@ html,body{
 	font-size:12px;
 	margin:25px 0;
 }
+
+/*.ftout{
+	width:100%;
+	 background: #fdf2ec;
+}*/
+
+footer{
+    height:342px;
+    width:1180px;
+   
+    overflow: hidden;margin:0 auto;
+}
+.footer-last-in{
+    height:100%;
+    width:1180px;
+    margin:0 auto;
+}
+.footer-last-p{
+    height:60px;
+    padding:21px 0px;
+    
+}
+.footer-last-p a{
+    display: block;
+    height:60px;
+    width:490px;
+    margin:0 auto;
+    background: url(../img/fot_consult.jpg) no-repeat;
+}
+.footer-last-ul{
+    height:36px;
+    width:100%;
+    margin-left:300px;
+}
+.footer-last-ul li{
+    float: left;
+    margin-left:10px;
+    height:36px;
+    line-height: 36px;
+}
+.footer-last-ul li a{
+    display:block;
+    height:36px;
+    line-height: 36px;
+    padding:0 5px;
+    color:#999;
+}
+.footer-last-ul li a:hover{
+    color:red;
+}
+.footer-last-p1{
+    height:36px;
+    line-height:36px;
+    text-align: center;
+    color:#999;
+}
+.footer-last-p1 span{
+    margin:0 10px;
+}
+.footer-last-dl dd{
+    float: left;
+    margin:0 5px;
+}
+.footer-last-dl{
+    margin:40px 0 0 350px;
+}
+.gotop{
+    height:40px;
+    width:40px;
+    position: fixed;
+    right:15px;
+    bottom:15px;
+    background: url(../img/s_totop.jpg) no-repeat;
+    background-position: 0 0 ;
+}
+.gotop:hover{
+    background-position: -40px 0;
+}
+.cebian{
+    height:340px;
+    width:67px;
+    position: fixed;
+    z-index: 100;
+    right:0;
+    top:32%;
+}
+.cebian-tu{
+    height:95px;
+    width:88px;
+    position: absolute;
+    right:0;
+    top:-94px;
+    background: url(../img/img.png) no-repeat;
+}
+.cebian li{
+    height:67px;
+    width:67px;
+    margin-bottom: 1px;
+    background:#f6827a;
+}
+.cebian li a{
+    display: block;
+    height:100%;
+    width:100%;
+}
+.cebian li img{
+  
+    height:100%;
+    width:100%;
+}
+.cebian li img:hover{
+    opacity: .9;
+}
+.xian{
+    position: relative;
+}
+.yin{
+    height:135px;
+    width:206px;
+    position: absolute;
+    display: none;
+    top:0;
+    left:-207px;
+}
+.xian:hover .yin{
+    display: block;
+}

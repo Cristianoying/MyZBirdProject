@@ -1,0 +1,85 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#list {
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+}
+#list .list {
+  width: 680px;
+  height: 800px;
+  margin: 50px auto;
+}
+#list .list li {
+  text-align: center;
+  width: 240px;
+  height: 300px;
+  border-bottom: 1px solid #ccc;
+  float: left;
+  margin: 10px 50px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+#list .list li:hover {
+  border-bottom: 7px solid pink;
+}
+#list .list li p {
+  margin: 10px;
+}
+
+#product {
+  width: 100%;
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+}
+#product .product {
+  width: 340px;
+  float: left;
+  overflow: hidden;
+}
+#product .product .zz {
+  width: 120px;
+  height: 96px;
+  display: block;
+  position: absolute;
+  background: rgba(213, 20, 21, 0.2);
+}
+#product .product li {
+  width: 240px;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  height: 360px;
+  border-bottom: 1px solid #ccc;
+  cursor: move;
+  box-sizing: border-box;
+}
+#product .product li p {
+  width: 200px;
+  font-size: 18px;
+  margin: 10px 0;
+}
+#product .pright {
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  position: absolute;
+  left: 400px;
+  top: 100px;
+}
+#product .pright .big {
+  width: 240px;
+  height: 193px;
+  overflow: hidden;
+}
+#product .pright .big img {
+  width: 480px;
+  width: 386px;
+  position:absolute;
+}
+
+/*# sourceMappingURL=list.css.map */

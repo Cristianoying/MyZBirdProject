@@ -57,21 +57,105 @@
 				<div class="reg">欢迎注册</div>
 				<div class="account">已有账号<span>直接登录</span></div>	
 			</div>
-			<div class="bottom">
+			<form class="bottom" method="post" action="http://localhost/phpmine/reg_login.php?status=register">
 				<fieldset>
-					<input type="tel" name="tel" value="" placeholder="请输入手机号">
-					<input  type="text" name="regyzm" class="regyzm"value="" placeholder="6位验证码">
+					<input type="tel" class="tel" name="tel" value="" placeholder="请输入手机号">
+					<label> </label>
+					<input  type="text" name="regyzm" class="regyzm" value="" placeholder="6位验证码">
 					<input type="button" class="btyzm" name="" value="免费获取手机号">
-					<input type="password" name="pwd" placeholder="6-20位大小写字母，数字及'-'、'_'组合">
-					<input type="password" name="qpwd" value="" placeholder="请再次输入密码">
+					<label> </label>
+					<input type="password" class="pwd" name="pwd" placeholder="6-20位大小写字母，数字及'-'、'_'组合">
+					<label> </label>
+					<input type="password" class="qpwd" name="qpwd" value="" placeholder="请再次输入密码">
+					<label> </label>
 					<input class="check" type="checkbox" checked="checked">
-					<label>已阅读并同意<u>《钻石小鸟用户服务协议》</u></label>
+					<label class="spe">已阅读并同意<a class="xieyi" href="#"><u>《钻石小鸟用户服务协议》</u></a></label>
 					<input class="sub" type="submit" value="注册">
 				</fieldset>
-			</div>
+			</form>
 		</div>
 	</div>
 </div>
-
 </body>
 </html>
+<script src="../js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	var flagtel = false,
+		flagyzm = false,
+		flagpwd = false,
+		flagqpwd = false,
+		flagcheck = false;
+	$(".tel").blur(function(){
+		var reg = /^1\d{10}$/;
+		var val = $(this).val();
+		// console.log(val);
+		if (!reg.test(val)) {
+			$(this).next("label").html("手机号码为11位数字");
+		}else{
+			$.ajax({
+				type:"get",
+				url:`http://localhost/phpmine/reg_login.php?status=yz&tel=${val}`,
+				success:function(msg){
+					// console.log(msg);
+					if (msg == 0) {
+						// console.log(11)
+						$(".tel").next("label").html("正确");
+						flagtel = true;
+					}else{
+						$(".tel").next("label").html("您已经注册过了，请换一个手机号！");
+					}
+				}
+			})
+		}
+	})
+	$(".regyzm").blur(function(){
+		var reg = /^.{6}$/;
+		var val = $(this).val();
+		// console.log(val);
+		if (!reg.test(val)) {
+			// console.log(11)
+			$(this).next().next("label").html("请输入六位验证码");
+		}else{
+			$(this).next().next("label").html("正确");
+			flagyzm = true;
+		}
+	})
+		$(".pwd").blur(function(){
+		var reg = /^.{8,16}$/;
+		var val = $(this).val();
+		// console.log(val);
+		if (!reg.test(val)) {
+			$(this).next("label").html("请输入密码");
+		}else{
+			$(this).next("label").html("正确");
+			flagpwd = true;
+		}
+	})
+		$(".qpwd").blur(function(){
+		var valpwd = $(".pwd").val();
+		var valqpwd = $(this).val();
+		// console.log(val);
+		console.log(valpwd,valqpwd);
+		if (valpwd == valqpwd) {
+			$(this).next("label").html("6-20位大小写字母，数字及'-'、'_'组合");
+		}else{
+			$(this).next("label").html("正确");
+			flagqpwd = true;
+		}
+	})
+	if ($(".check").prop("checked")) {
+		flagcheck = true;	
+	}else{
+		alert("请阅读并同意《钻石小鸟用户服务协议》");
+	}
+
+
+	$(".bottom").submit(function(){
+		if ( flagcheck && flagqpwd && flagpwd && flagyzm &&flagtel) {
+			return true;
+		}else{
+			alert("请输入完整信息");
+			return false;
+		}
+	});
+</script>

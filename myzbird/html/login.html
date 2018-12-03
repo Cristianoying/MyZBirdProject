@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title></title>
-<link rel="stylesheet" href="">
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <link rel="stylesheet" type="text/css" href="../css/reg_login.css">
 </head>
@@ -59,8 +58,8 @@
 			</div>
 			<div class="bottom">
 				<fieldset>
-					<input type="tel" name="text" value="" placeholder="用户名">
-					<input type="password" name="pwd" placeholder="密码">
+					<input class="tel" type="tel" name="text" value="" placeholder="用户名">
+					<input  class="pwd" type="password" name="pwd" placeholder="密码">
 					<input class="check" value="自动登录" type="checkbox">
 					<label>自动登录</label>
 					<input class="sub" type="submit" value="登录">
@@ -79,3 +78,19 @@
 
 </body>
 </html>
+<script src="../js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	$(".sub").click(function(){
+		 var tel = $(".tel").val(),
+		 	 pwd = $(".pwd").val();
+		 	 // console.log(uname,upwd);
+		$.ajax({
+			type:"get",
+			url:`http://localhost/phpmine/reg_login.php?status=login&tel=${tel}&pwd=${pwd}`,
+			success:function(msg){
+				alert('登录成功！');
+				location.href=`http://localhost/MyZBirdProject/myzbird/index.html?uname=${tel}`;
+			}
+		})
+	})
+</script>

@@ -1,32 +1,40 @@
-$(window).load(function(){
 
+$(document).ready(function(){
+	var url =  location.href;
+	var user = url.split("=")[1];	
+	console.log(user);
+	if (user) {
+		$(".hrleft a").eq(0).html(`${user}，您好！`);
+		$(".hrleft a").eq(1).html(`您是普通会员`);
+		$(".hrleft a").eq(3).html(`退出登录`);
+	}
 	var $gwc = $(".htright li").first(),
-		$niaochao = $(".htright li").eq(2);
-		$gwc.mouseenter(function(event) {
-			$.ajax({
-				type:"get",
-				url:"",
-				success:function(msg){
-					console.log(msg);
-				}
-			})
-		});		
+	$niaochao = $(".htright li").eq(2);
+	$gwc.mouseenter(function(event) {
+		$.ajax({
+			type:"get",
+			url:"",
+			success:function(msg){
+				console.log(msg);
+			}
+		})
+	});		
 
 
 	//nav选项卡
 	$(".navxxk").mouseenter(function() {
-		 var index = $(this).index();
+		var index = $(this).index();
 		 // console.log($("#navbottom div").eq(index))
-		$("#navbottom div").eq(index-1).css("display","block").siblings().css("display","none");
-	}).mouseleave(function() {
+		 $("#navbottom div").eq(index-1).css("display","block").siblings().css("display","none");
+		}).mouseleave(function() {
 		// $("#navbottom div").css("display","block");
 	});
-	$("#navbottom").mouseleave(function(){
-		$("#navbottom div").css("display","none");
-	});
-	$(".headermiddle").mouseenter(function(){
-		$("#navbottom div").css("display","none");
-	})
+		$("#navbottom").mouseleave(function(){
+			$("#navbottom div").css("display","none");
+		});
+		$(".headermiddle").mouseenter(function(){
+			$("#navbottom div").css("display","none");
+		})
 	//轮播图
 	{
 		// console.log(index)
@@ -82,27 +90,26 @@ $(window).load(function(){
 		}).mouseleave(function() {
 			timer = setInterval(autoplay,3000);
 		});
-	
 
-		}
+	}
 	
 
 // small banner 轮播图
-	$imgs = $("#banner .bannerleft ul img");
-	console.log($imgs);
-	lunbo($imgs,2000);
+$imgs = $("#banner .bannerleft ul img");
+console.log($imgs);
+lunbo($imgs,2000);
 	// lunbo($(".wdleft img"),2000,$(".wddots li"));
 //右侧鼠标事件
-	$(".imgflash").mouseenter(function(){
-		$(this).stop().fadeTo(200,.8,function(){
-			$(this).stop().fadeTo(200,1);
-		})
+$(".imgflash").mouseenter(function(){
+	$(this).stop().fadeTo(200,.8,function(){
+		$(this).stop().fadeTo(200,1);
 	})
+})
 	// console.log($(".imgflash"));
 //系列产品选项卡
 {
 	var $xxk = $("#seriesProduct .spheader a"),
-		$xxkdiv = $("#seriesProduct .spbody");
+	$xxkdiv = $("#seriesProduct .spbody");
 		// console.log($xxk,$xxkdiv);
 		xxk($xxk,$xxkdiv,".spbody");
 
@@ -130,28 +137,28 @@ $(window).load(function(){
 		timer2 = setInterval(autoplay2,2000);
 	});
 }
-	
+
 
 //婚戒推荐 & 全球美钻 运动
-	var $rec = $("#recommend ul"),
-		dis = $rec[0].children[0].offsetWidth;
+var $rec = $("#recommend ul"),
+dis = $rec[0].children[0].offsetWidth;
 		// console.log(dis)
-	$("#recommend .recleft").click(function(){
-		var nowleft = $rec[0].offsetLeft;
-		console.log(nowleft);
-		if (nowleft >= -882) {
-			startMove($rec[0],{"left":nowleft-dis});
-		}
-		
-	})
-	$("#recommend .recright").click(function(){
-		var nowleft = $rec[0].offsetLeft;
-		console.log(nowleft);
-		if (nowleft <= 0) {
-			startMove($rec[0],{"left":nowleft + dis});
-		}
-		
-	})
+		$("#recommend .recleft").click(function(){
+			var nowleft = $rec[0].offsetLeft;
+			console.log(nowleft);
+			if (nowleft >= -882) {
+				startMove($rec[0],{"left":nowleft-dis});
+			}
+
+		})
+		$("#recommend .recright").click(function(){
+			var nowleft = $rec[0].offsetLeft;
+			console.log(nowleft);
+			if (nowleft <= 0) {
+				startMove($rec[0],{"left":nowleft + dis});
+			}
+
+		})
 
 //地址选项卡下的轮播图
 lunbo($(".wdleft img"),2000,$(".wddots li"));
@@ -178,20 +185,5 @@ $pos.mouseenter(function(){
 })
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 })//onload 结束标签
 
-	

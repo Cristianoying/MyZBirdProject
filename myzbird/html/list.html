@@ -4,22 +4,85 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="../css/list.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+<link rel="stylesheet" type="text/css" href="../css/reg_login.css">
 </head>
 <body>
-	
+	<div id="header">
+<div class="headertop">
+	<div class="htleft">
+		<a href="#">欢迎进入钻石小鸟官网</a>
+		<a href=""> 登录 </a>
+		<a href=""> 注册 </a>
+	</div>
+	<ul class="htright">
+		<li>购物车 <span class="procount">0</span></li>
+		<li>我的订单</li>
+		<li>我的鸟巢
+			<ul class="niaochao">
+				<li><a href="#">订单查询</a></li>
+				<li><a href="#">积分服务</a></li>
+				<li><a href="#">积分换礼</a></li>
+			</ul>	
+		</li>
+		<li>钻石课堂</li>
+		<li>手机官网
+			<ul class="wxtp">
+				<img src="../img/code_wechat.jpg">
+			</ul></li>
+		</ul>
+	</div>
+	<!-- hm : headermiddle -->
+	<div class="hmouter">
+		<div class="headermiddle">
+			<div id="hmleft"><div class="zbird">
+				<img src="http://im1.zbird.cn/picdb/555/518/e7d95bd4f523b9d296421613e6267360.png">
+			</div>
+			<div class="zbirdwz">
+				<img  src="http://img.zbird.cn/ww3/pubheaderfooter/pcslogan.png" alt="">
+			</div></div>
+		</div>
+	</div>
+</div>
+
+<div id="list">
+	<ul class="list">
+		<!-- <li>
+			<img src="" alt="">
+			<p>名称：<span class="pname"></span></p>
+			<p>￥<span class="price"></span></p>
+			<p>售出:699<span class="sold"></span> 评论:12<span class="comments"></span></p>
+		</li> -->
+	</ul>
+</div>
+
+
+
 </body>
 </html>
 <script src="../js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript">
-	$(document).click(function(){
+	$(window).load(function(){
 		$.ajax({
 			type:"get",
-			url:"http://localhost/php1819/product.php",
+			url:"http://localhost/phpmine/product.php",
 			success:function(msg){
 				var arr = JSON.parse(msg);
-				console.log(arr)
+				var str = '';
+				for(var i = 0 ; i < arr.length ; i++){
+					str += `<li src=${arr[i].src} pid=${arr[i].pid} pname=${arr[i].pname} price=${arr[i].price}>
+							<img src=" http://localhost/MyZBirdProject/myzbird/img/${arr[i].src}">
+							<p>名称：<span class="pname">${arr[i].pname}</span></p>
+							<p>￥<span class="price">${arr[i].price}</span></p>
+							<p>售出:<span class="sold">699</span>评论:<span class="comments">12</span></p>
+							</li>`
+				}
+				$(".list").html(str);
 			}
 		})
 	})
+	$(".list").on("click","li",function(){
+		location.href=`http://localhost/MyZBirdProject/myzbird/html/zj.html?pid=${$(this).attr("pid")}`;
+	});
 </script>

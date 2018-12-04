@@ -50,24 +50,26 @@
 			</div>
 		</div>
 		
-		<div id="product">
-			<ul class="product">
-				<span class="zz"></span>
-				
-		<!-- <li>
-			<img src="" alt="">
-			<p>名称：<span class="pname"></span></p>
-			<p>￥<span class="price"></span></p>
-			<p>售出:699<span class="sold"></span> 评论:12<span class="comments"></span></p>
-		</li> -->
-
-	</ul>
-	<div class="pright">
+		<div id="detail">
+			
+			<ul class="detail">	
+				<img src="../img/small1.jpg" alt="">
+				<img src="../img/small2.jpg" alt="">
+				<img src="../img/small3.jpg" alt="">
+				<span class="mask"></span>
+				<ol class="sms">
+					<li><img src="../img/small1.jpg" alt=""></li>
+					<li><img src="../img/small2.jpg" alt=""></li>
+					<li><img src="../img/small3.jpg" alt=""></li>
+				</ol>
+			</ul>
+			
 		<div class="big">
-			<img src="" alt="">
-		</div>
+			<img src="../img/big1.jpg">
 	</div>
 </div>
+
+
 
 	 <footer>
         <div class="footer-last-in">
@@ -138,62 +140,109 @@
 <script src="../js/jquery-1.11.1.min.js"></script>
 <script src="../js/public.js"></script>
 <script type="text/javascript">
-	$(window).load(function(){
-		showcart();
-		var url = (location.href);
-		var str = url.split("=")[1];
-		// console.log(str);
-		$.ajax({
-			type:"get",
-			url:"http://localhost/phpmine/reg_login.php?status=pro&pid="+str,
-			success:function(msg){
+	$(".sms li").mouseenter(function(){
+		var index = $(this).index();
+ 		 // console.log( );
+		$(".detail img").eq(index) .show().siblings("img").hide();
+	})
+
+	$(".detail img").mouseenter(function(){
+		// alert()
+		$(".mask").show();
+		$(document).mousemove(function(e) {
+			var e =e || event;
+			var x = e.pageX - $(".detail").offset().left - 50;
+			var y = e.pageY - $(".detail").offset().top  - 50;
+			var ml = mt = 100
+			if (x<0) {x=0}
+			if (x>100) {x=100}
+			if (y<0) {y=0}
+			if (y>100) {y=100}
+			$(".mask").css({
+				"left":x,
+				"top":y
+			})
+			$(".big img").css({
+				"left":-2*x,
+				"top":-2*y
+			})
+		});
+	})
+	$(".detail img").mouseleave(function(event) {
+		$(".mask").hide();
+	});
+
+
+
+
+
+
+
+
+
+	
+</script>
+
+
+
+
+<script type="text/javascript">
+	// $(window).load(function(){
+	// 	showcart();
+	// 	var url = (location.href);
+	// 	var str = url.split("=")[1];
+	// 	// console.log(str);
+	// 	$.ajax({
+	// 		type:"get",
+	// 		url:"http://localhost/phpmine/reg_login.php?status=pro&pid="+str,
+	// 		success:function(msg){
 				
 					
-					var $li = $("<li>");
-					var arr = JSON.parse(msg);
-					var str = `
-					<img src=" http://localhost/MyZBirdProject/myzbird/img/${arr.src}">
-					<p>名称：<span class="pname">${arr.pname}</span></p>
-					<p>￥<span class="price">${arr.price}</span></p>
-					<p>售出:<span class="sold">699</span>评论:<span class="comments">12</span></p>
-					`;
-					$li.html(str);
-					$(".product").append($li);	
-					console.log(`${arr.src}`);
-					$(".big img").attr("src",`http://localhost/MyZBirdProject/myzbird/img/${arr.src}`);
-			}
-		})
+	// 				var $li = $("<li>");
+	// 				var arr = JSON.parse(msg);
+	// 				var str = `
+	// 				<img src=" http://localhost/MyZBirdProject/myzbird/img/${arr.src}">
+	// 				<p>名称：<span class="pname">${arr.pname}</span></p>
+	// 				<p>￥<span class="price">${arr.price}</span></p>
+	// 				<p>售出:<span class="sold">699</span>评论:<span class="comments">12</span></p>
+	// 				`;
+	// 				$li.html(str);
+	// 				$(".product").append($li);	
+	// 				console.log(`${arr.src}`);
+	// 				$(".big img").attr("src",`http://localhost/MyZBirdProject/myzbird/img/${arr.src}`);
+	// 		}
+	// 	})
 
-		class fdj{
-			constructor(){
-			}
-			fnFdj(){
-				$(document).on("mousemove",function(e){
-				var e = e || event;
-				this.disx =  e.pageX - $(".zz").width()/2 - $(".product").offset().left - $(".product").offset().left;
-				this.disy = e.pageY - $(".zz").height()/2  - $(".product").offset().top;
-				if (this.disx<0) {this.disx=0}
-				if (this.disx>120) {this.disx=120}
-				if (this.disy<0) {this.disy=0}
-				if (this.disy>96) {this.disy=96}
-				$(".zz").css({
-					left:  this.disx,
-					top:  this.disy
-				});	
-				$("#product .pright .big img").css({
-					"left":  this.disx*(-2),
-					"top":  this.disy*(-2)
-				});		
-			}) 
+	// 	class fdj{
+	// 		constructor(){
+	// 		}
+	// 		fnFdj(){
+	// 			$(document).on("mousemove",function(e){
+	// 			var e = e || event;
+	// 			this.disx =  e.pageX - $(".zz").width()/2 - $(".product").offset().left - $(".product").offset().left;
+	// 			this.disy = e.pageY - $(".zz").height()/2  - $(".product").offset().top;
+	// 			if (this.disx<0) {this.disx=0}
+	// 			if (this.disx>120) {this.disx=120}
+	// 			if (this.disy<0) {this.disy=0}
+	// 			if (this.disy>96) {this.disy=96}
+	// 			$(".zz").css({
+	// 				left:  this.disx,
+	// 				top:  this.disy
+	// 			});	
+	// 			$("#product .pright .big img").css({
+	// 				"left":  this.disx*(-2),
+	// 				"top":  this.disy*(-2)
+	// 			});		
+	// 		}) 
 
-			}
-			fnMove(){
+	// 		}
+	// 		fnMove(){
 
-			}
+	// 		}
 
-		}	
-		new fdj().fnFdj();
+	// 	}	
+	// 	new fdj().fnFdj();
 
-	})
+	// })
 
 </script>

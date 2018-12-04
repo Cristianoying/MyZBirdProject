@@ -44,27 +44,57 @@ html,body{
 	float:right;
 }
 #header .htright li{
-	width:68px;
+	cursor:pointer;
+	width:70px;
 	font-size:12px;
 	margin:0 10px;
 	font-weight:normal;
+	border:1px solid transparent;
 	float:left;
+}
+#header .htright li>ul{
+	border:1px solid orange;
+	border-top:none;
 }
 #header .htright>li:nth-child(odd):hover{
 	background:#fff;
-	box-sizing:border-box;
+			/*box-sizing:border-box;*/
 	border:1px solid red;
+	border-bottom:1px solid transparent;
 }
 #header .htright>li:nth-child(1){
+
+	position:relative;
 	padding-left: 10px;
-	background : url("../img/header_box.png") no-repeat left center,
-	url('http://img.zbird.cn/ww3/pubheaderfooter/icon_drop.png') no-repeat right center ;
+	background : url("../img/header_box.png") no-repeat left 10px,
+	url('http://img.zbird.cn/ww3/pubheaderfooter/icon_drop.png') no-repeat right 13px ;
+}
+#header .htright>li .gwclist{
+	position:absolute;
+	text-align:left;
+	display:none;
+	width:140px;
+	height:auto;
+	left:-1px;
+	background:#Fff;
+}
+#header .htright>li .gwclist li{
+	width:130px;
+	margin:0;
+	padding-right:3px;
+	border-bottom:1px solid #eee !important;
+}
+#header .htright>li .gwclist span{
+	
+	display:block;
+	float:right;
 }
 #header .htright>li:nth-child(1):hover{
-	box-sizing:border-box;
-	padding-left: 10px;
-	background : url("../img/header_box.png") no-repeat left center,
-	url('http://img.zbird.cn/ww3/pubheaderfooter/icon_drop.png') no-repeat right center;
+	/*box-sizing:border-box;*/
+	/*height:34px;*/
+	/*padding-left: 10px;*/
+	background : url("../img/header_box.png") no-repeat left 10px,
+	url('http://img.zbird.cn/ww3/pubheaderfooter/icon_drop.png') no-repeat right 13px #fff ;
 }
 #header .htright>li:nth-child(3){
 	height:34px;
@@ -88,7 +118,7 @@ html,body{
 	margin:0;
 }
 #header .htright .wxtp img{
-	margin-left:-166px;
+	margin-left:-163px;
 }
 #header .hmouter{
 	width:100%;

@@ -6,9 +6,10 @@
 <title></title>
 <link rel="stylesheet" type="text/css" href="../css/style.css">
 <link rel="stylesheet" type="text/css" href="../css/reg_login.css">
+<script src="../js/jquery-1.11.1.min.js"></script>
+<script src="../js/public.js"></script>
 </head>
 <body>
-
 <div id="header">
 <div class="headertop">
 	<div class="htleft">
@@ -17,7 +18,7 @@
 		<a href=""> 注册 </a>
 	</div>
 	<ul class="htright">
-		<li>购物车 <span class="procount">0</span></li>
+		<li class="gwc">购物车 <span class="procount">0</span></li>
 		<li>我的订单</li>
 		<li>我的鸟巢
 			<ul class="niaochao">
@@ -78,7 +79,7 @@
 
 </body>
 </html>
-<script src="../js/jquery-1.11.1.min.js"></script>
+
 <script type="text/javascript">
 	$(".sub").click(function(){
 		 var tel = $(".tel").val(),
@@ -89,6 +90,7 @@
 			url:`http://localhost/phpmine/reg_login.php?status=login&tel=${tel}&pwd=${pwd}`,
 			success:function(msg){
 				alert('登录成功！');
+				// setCookie("username",tel,7);
 				location.href=`http://localhost/MyZBirdProject/myzbird/index.html?uname=${tel}`;
 			}
 		})

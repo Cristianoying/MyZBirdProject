@@ -13,9 +13,9 @@
 <div id="header">
 <div class="headertop">
 	<div class="htleft">
-		<a href="#">欢迎进入钻石小鸟官网</a>
-		<a href=""> 登录 </a>
-		<a href=""> 注册 </a>
+		<a href="http://10.9.26.196/MyZBirdProject/myzbird/index.html">欢迎进入钻石小鸟官网</a>
+		<a href="http://10.9.26.196/MyZBirdProject/myzbird/html/login.html"> 登录 </a>
+		<a href="http://10.9.26.196/MyZBirdProject/myzbird/html/reg.html"> 注册 </a>
 	</div>
 	<ul class="htright">
 		<li class="gwc">购物车 <span class="procount">0</span></li>
@@ -55,9 +55,9 @@
 		<div class="mainright">
 			<div class="mrhead">
 				<div class="reg">欢迎注册</div>
-				<div class="account">已有账号<span>直接登录</span></div>	
+				<div class="account">已有账号<a href="http://10.9.26.196/MyZBirdProject/myzbird/html/login.html" ><span>直接登录</span></a></div>	
 			</div>
-			<form class="bottom" method="post" action="http://localhost/phpmine/reg_login.php?status=register">
+			<form class="bottom" method="post" action="http://10.9.26.196/phpmine/reg_login.php?status=register">
 				<fieldset>
 					<input type="tel" class="tel" name="tel" value="" placeholder="请输入手机号">
 					<label> </label>
@@ -159,7 +159,7 @@
 		}else{
 			$.ajax({
 				type:"get",
-				url:`http://localhost/phpmine/reg_login.php?status=yz&tel=${val}`,
+				url:`http://10.9.26.196/phpmine/reg_login.php?status=yz&tel=${val}`,
 				success:function(msg){
 					// console.log(msg);
 					if (msg == 0) {

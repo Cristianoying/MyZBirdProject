@@ -6,7 +6,7 @@
 	<title></title>
 	<link rel="stylesheet" href="../css/list.css">
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
-	<link rel="stylesheet" type="text/css" href="../css/reg_login.css">
+
 </head>
 <body>
 	<div id="header">
@@ -145,14 +145,14 @@
 		// console.log(str);
 		$.ajax({
 			type:"get",
-			url:"http://localhost/phpmine/reg_login.php?status=pro&pid="+str,
+			url:"http://10.9.26.196/phpmine/reg_login.php?status=pro&pid="+str,
 			success:function(msg){
 				
 					
 					var $li = $("<li>");
 					var arr = JSON.parse(msg);
 					var str = `
-					<img src=" http://localhost/MyZBirdProject/myzbird/img/${arr.src}">
+					<img src=" http://10.9.26.196/MyZBirdProject/myzbird/img/${arr.src}">
 					<p>名称：<span class="pname">${arr.pname}</span></p>
 					<p>￥<span class="price">${arr.price}</span></p>
 					<p>售出:<span class="sold">699</span>评论:<span class="comments">12</span></p>
@@ -160,7 +160,7 @@
 					$li.html(str);
 					$(".product").append($li);	
 					console.log(`${arr.src}`);
-					$(".big img").attr("src",`http://localhost/MyZBirdProject/myzbird/img/${arr.src}`);
+					$(".big img").attr("src",`http://10.9.26.196/MyZBirdProject/myzbird/img/${arr.src}`);
 			}
 		})
 
@@ -180,7 +180,8 @@
 					left:  this.disx,
 					top:  this.disy
 				});	
-				$("#product .pright .big img").css({
+				console.log($(".big"));
+				$(".big img").css({
 					"left":  this.disx*(-2),
 					"top":  this.disy*(-2)
 				});		

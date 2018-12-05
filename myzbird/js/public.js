@@ -123,9 +123,6 @@ function lunbo2($xxk,t){
 
 //封装函数，显示购物车里面的内容
 function showcart(){
-
-
-
 	var procount =0;
 	if (localStorage.prolist) {
 		var brr = JSON.parse(localStorage.prolist);
@@ -135,9 +132,44 @@ function showcart(){
 				var str = `<li>名称：${brr[i].pname}<span> 数量：${brr[i].count}</span></li>`;
 				$li.html(str);
 				$(".gwclist").append($li);
+				$(".gwclist").css("z-index",9)
 		}
 		$(".procount").html(procount);				
 	}
+
+		function fn(){
+		// console.log("自己执行");
+		console.log(localStorage.username);
+		if (localStorage.username) {
+			console.log($(".hrleft a").eq(0));
+			$(".htleft a").eq(0).html(localStorage.username);
+			$(".htleft a").eq(1).html(`您是普通会员`);
+			$(".htleft a").eq(2).html(`退出登录`);
+		}
+	}
+	setTimeout(fn,200);
+
+	//退出登录
+	$(".htleft a").eq(2).on("click",function(){
+		if ($(".htleft a").eq(2).html()=="注册") {
+			// console.log("注册！！！");
+			location.href = "http://10.9.26.196/MyZBirdProject/myzbird/html/reg.html";
+		}else{
+			var username = localStorage.username;
+			var prolist = localStorage.prolist;
+			if (!prolist) {
+				prolist = 'null';
+			}
+			$.ajax({
+				type:"get",
+				url:`http://10.9.26.196/phpmine/save.php?username=${username}&prolist=${prolist}`,
+				success:function(msg){
+					localStorage.clear();
+					location.href = "http://10.9.26.196/MyZBirdProject/myzbird/html/login.html"
+				}
+			})
+		}
+	})
 }
 
 
@@ -148,7 +180,7 @@ function setCookie(key,value,days){
 	if( days ){
 		var now = new Date();
 		now.setTime(now.getTime() + days*24*60*60*1000 ) 
-		document.cookie=key+"="+value + ";expires="+now;
+		document.cookie=key+"="+value + ";path=/;expires="+now;
 	}else{
 		document.cookie=key+"="+value;
 	}
@@ -176,3 +208,5 @@ function getCookie(key){
 function removeCookie(key){
 	setCookie(key,"",-1);
 }
+
+

@@ -88,8 +88,10 @@
   overflow: hidden;
 }
 #product .pright .big img {
+  vertical-align: middle;
   width: 480px;
-  width: 386px;
+  height: 386px;
+  position: absolute;
 }
 
 #detail {
@@ -147,6 +149,68 @@
   position: absolute;
   width: 400px;
   height: 400px;
+}
+
+#cartlist {
+  width: 1137px;
+  min-height: 300px;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+}
+#cartlist .cartheader {
+  width: 1137px;
+  border-bottom: 1px solid #000;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+}
+#cartlist .cartheader .pro {
+  width: 251px;
+  height: 30px;
+  line-height: 30px;
+  margin: 0;
+  padding: 0;
+}
+#cartlist .cartheader > span {
+  display: inline-block;
+  width: 130px;
+  height: 30px;
+  line-height: 30px;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+#cartlist li {
+  width: 1137px;
+  border-bottom: 1px solid #000;
+  height: 100px;
+  margin: 0;
+  padding: 0;
+}
+#cartlist li div {
+  float: left;
+  width: 131px;
+  height: 100px;
+  margin-left: 4px;
+  line-height: 100px;
+  font-size: 12px;
+}
+#cartlist li .proname {
+  width: 252px;
+  height: 100px;
+  margin-left: 36px;
+}
+#cartlist li .proname img {
+  vertical-align: middle;
+  height: 50px;
+  width: 50px;
+  margin: 25px 10px;
+}
+#cartlist li .proname span {
+  display: inline-block;
+  width: 130px;
+  font-size: 12px;
 }
 
 /*# sourceMappingURL=list.css.map */

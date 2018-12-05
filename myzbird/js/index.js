@@ -2,19 +2,7 @@ $(document).ready(function(){
 
 	//购物车数量
 	showcart();
-	var url =  location.href;
-	var user = url.split("=")[1];	
-	console.log(user);
-	// alert(user);
-	// console.log(`${user}，您好！`);
-	// $(".hrleft a").eq(0).html();
-	// $(".hrleft a").eq(1).html(`您是普通会员`);
-	// $(".hrleft a").eq(3).html(`退出登录`);
-	// var $gwc = $(".htright li").first(),
-	// $niaochao = $(".htright li").eq(2);
-	// $gwc.mouseenter(function(event) {
-		
-	// });		
+	//显示用户名
 
 
 	//nav选项卡
@@ -179,6 +167,9 @@ $pos.mouseenter(function(){
 		}
 	})
 })
+
+// $(".htleft a").eq(2).html(`退出登录`);
+
 
 
 })//onload 结束标签

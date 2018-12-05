@@ -12,9 +12,9 @@
 	<div id="header">
 		<div class="headertop">
 			<div class="htleft">
-				<a href="#">欢迎进入钻石小鸟官网</a>
-				<a href=""> 登录 </a>
-				<a href=""> 注册 </a>
+				<a href="http://10.9.26.196/MyZBirdProject/myzbird/index.html">欢迎进入钻石小鸟官网</a>
+				<a href="http://10.9.26.196/MyZBirdProject/myzbird/html/login.html"> 登录 </a>
+				<a href="http://10.9.26.196/MyZBirdProject/myzbird/html/reg.html"> 注册 </a>
 			</div>
 			<ul class="htright">
 				<li class="gwc">购物车 <span class="procount">0</span></li><li class="gwc">购物车 <span class="procount">0</span>
@@ -146,9 +146,10 @@
 		$(".detail img").eq(index) .show().siblings("img").hide();
 	})
 
-	$(".detail img").mouseenter(function(){
+	$(".detail").mouseenter(function(){
 		// alert()
 		$(".mask").show();
+		$(".big").show();
 		$(document).mousemove(function(e) {
 			var e =e || event;
 			var x = e.pageX - $(".detail").offset().left - 50;
@@ -168,24 +169,12 @@
 			})
 		});
 	})
-	$(".detail img").mouseleave(function(event) {
+	$(".detail").mouseleave(function(event) {
 		$(".mask").hide();
+		$(".big").hide();
 	});
 
-
-
-
-
-
-
-
-
-	
 </script>
-
-
-
-
 <script type="text/javascript">
 	// $(window).load(function(){
 	// 	showcart();
@@ -194,14 +183,14 @@
 	// 	// console.log(str);
 	// 	$.ajax({
 	// 		type:"get",
-	// 		url:"http://localhost/phpmine/reg_login.php?status=pro&pid="+str,
+	// 		url:"http://10.9.26.196/phpmine/reg_login.php?status=pro&pid="+str,
 	// 		success:function(msg){
 				
 					
 	// 				var $li = $("<li>");
 	// 				var arr = JSON.parse(msg);
 	// 				var str = `
-	// 				<img src=" http://localhost/MyZBirdProject/myzbird/img/${arr.src}">
+	// 				<img src=" http://10.9.26.196/MyZBirdProject/myzbird/img/${arr.src}">
 	// 				<p>名称：<span class="pname">${arr.pname}</span></p>
 	// 				<p>￥<span class="price">${arr.price}</span></p>
 	// 				<p>售出:<span class="sold">699</span>评论:<span class="comments">12</span></p>
@@ -209,7 +198,7 @@
 	// 				$li.html(str);
 	// 				$(".product").append($li);	
 	// 				console.log(`${arr.src}`);
-	// 				$(".big img").attr("src",`http://localhost/MyZBirdProject/myzbird/img/${arr.src}`);
+	// 				$(".big img").attr("src",`http://10.9.26.196/MyZBirdProject/myzbird/img/${arr.src}`);
 	// 		}
 	// 	})
 

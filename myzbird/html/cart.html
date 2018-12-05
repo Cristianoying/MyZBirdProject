@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="../css/list.css">
+</head>
+<body>
+	<div id="header">
+		<div class="headertop">
+			<div class="htleft">
+				<a href="http://10.9.26.196/MyZBirdProject/myzbird/index.html">欢迎进入钻石小鸟官网</a>
+				<a href="http://10.9.26.196/MyZBirdProject/myzbird/html/login.html"> 登录  </a>
+				<a href="http://10.9.26.196/MyZBirdProject/myzbird/html/reg.html"> 注册</a>
+			</div>
+			<ul class="htright">
+				<li class="gwc">购物车 <span class="procount">0</span>
+					<ul class="gwclist">
+						<!-- <li>111</li> -->
+					</ul>
+				</li>
+				<li>我的订单</li>
+				<li>我的鸟巢
+					<ul class="niaochao">
+						<li><a href="#">订单查询</a></li>
+						<li><a href="#">积分服务</a></li>
+						<li><a href="#">积分换礼</a></li>
+					</ul>	
+				</li>
+				<li>钻石课堂</li>
+				<li>手机官网
+					<ul class="wxtp">
+						<img src="../img/code_wechat.jpg">
+					</ul></li>
+				</ul>
+			</div>
+			<!-- hm : headermiddle -->
+			<div class="hmouter">
+				<div class="headermiddle">
+					<div id="hmleft"><div class="zbird">
+						<img src="http://im1.zbird.cn/picdb/555/518/e7d95bd4f523b9d296421613e6267360.png">
+					</div>
+					<div class="zbirdwz">
+						<img  src="http://img.zbird.cn/ww3/pubheaderfooter/pcslogan.png" alt="">
+					</div></div>
+				</div>
+			</div>
+		</div>
+
+		<div id="cartlist">
+			<ul class="cartlist">
+				<li class="cartheader">
+					<span class="pro">商品</span>
+					<span>戒臂内圈刻字</span>
+					<span>时光环刻字</span>
+					<span>手寸</span>
+					<span>原价/元</span>
+					<span> 小计/元</span>
+					<span>操作</span>
+				</li>
+				<!-- <li>
+					<div class="proname">
+						<img src="" alt="">
+						<span>${arr[i].pname}</span>
+					</div>
+					<div>
+					</div>
+					<div>
+					</div>
+					<div>
+					</div>
+					<div class="price">￥${arr[i].price}元</div>
+					<div class="countall">
+						${arr[i].price*arr[i].count}
+					</div>
+					<div class="del">
+						<a>删除</a>
+					</div>
+				</li> -->
+			</ul>
+		</div>
+
+		<footer>
+			<div class="footer-last-in">
+				<p class="footer-last-p">
+					<a href="#"></a>
+				</p>
+				<ul class="footer-last-ul">
+					<li><a href="#">网站地图</a></li>
+					<li>|</li>
+					<li><a href="#">友情链接</a></li>
+					<li>|</li>
+					<li><a href="#">在线投诉</a></li>
+					<li>|</li>
+					<li><a href="#">asdakjfdahshadsafdbhdsafsa钻石小鸟 sadnsadh</a></li>
+				</ul>
+				<p class="footer-last-p1">
+					<span>上海素天珠宝有限公司</span><span>021-26011188</span>
+				</p>
+				<ul class="footer-last-ul" style="margin-left:150px;">
+					<li><a href="#">网站地图</a></li>
+					<li>|</li>
+					<li><a href="#">友情链接</a></li>
+					<li>|</li>
+					<li><a href="#">在线投诉</a></li>
+					<li>|</li>
+					<li><a href="#">在线投诉</a></li>
+					<li>|</li>
+					<li><a href="#">友情链接</a></li>
+					<li>|</li>
+					<li><a href="#">在线投诉</a></li>
+					<li>|</li>
+					<li><a href="#">在线投诉</a></li>
+					<li>|</li>
+					<li><a href="#">友情链接</a></li>
+					<li>|</li>
+					<li><a href="#">在线投诉</a></li>
+					<li>|</li>
+					<li><a href="#">在线投诉</a></li>
+				</ul>
+				<dl class="footer-last-dl"> 
+					<dd><a href="#"><img src="../img/fot_certi.gif" alt=""></a></dd>
+					<dd><a href="#"><img src="../img/fot_certi_02.jpg" alt=""></a></dd>
+					<dd><a href="#"><img src="../img/fot_certi_03.jpg" alt=""></a></dd>
+					<dd><a href="#"><img src="../img/fot_certi_04.jpg" alt=""></a></dd>
+
+				</dl>
+			</div>
+		</footer>
+	</div>
+
+	
+	<div class="gotop">
+	</div>
+	<div class="cebian">
+		<a href="#" class="cebian-tu"></a>
+		<ul>
+			<li><a href="#"><img src="../img/1_2.gif" alt=""></a></li>
+			<li><a href="#"><img src="../img/2_2.jpg" alt=""></a></li>
+			<li><a href="#"><img src="../img/3_2.jpg" alt=""></a></li>
+			<li><a href="#"><img src="../img/4_2.jpg" alt=""></a></li>
+			<li class="xian"><a href="#"><img src="../img/5(1).jpg" alt=""></a>
+				<div class="yin"><img src="../img/code.jpg" alt=""></div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
+<script src="../js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	if (localStorage.prolist) {
+		var arr = JSON.parse(localStorage.prolist);
+		for(var i = 0 ; i < arr.length ; i++){				
+			var $li = $("<li>");
+			var str = `<li>
+			<div class="proname"><img src="http://10.9.26.196/MyZBirdProject/myzbird/img/${arr[i].src}" alt="">
+			<span>${arr[i].pname}</span></div>
+			<div>
+			</div>
+			<div>
+			</div>
+			<div>
+			</div>
+			<div class="price">￥${arr[i].price}元</div>
+			<div class="countall">￥${arr[i].price*arr[i].count}元</div>
+			<div class="del">
+			<a>删除</a>
+			</div>
+			</li>`;
+			$li.html(str);
+			$(".cartlist").append($li);
+		}
+	}
+
+
+
+</script>

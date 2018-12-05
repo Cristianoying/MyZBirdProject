@@ -3,14 +3,14 @@
 		showcart();
 		$.ajax({
 			type:"get",
-			url:"http://localhost/phpmine/product.php",
+			url:"http://10.9.26.196/phpmine/product.php",
 			datatype:"jsonp",
 			success:function(msg){
 				var arr = JSON.parse(msg);
 				var str = '';
 				for(var i = 0 ; i < arr.length ; i++){
 					str += `<li src=${arr[i].src} pid=${arr[i].pid} pname=${arr[i].pname} price=${arr[i].price}>
-					<img src=" http://localhost/MyZBirdProject/myzbird/img/${arr[i].src}">
+					<img src="http://10.9.26.196/MyZBirdProject/myzbird/img/${arr[i].src}">
 					<p>名称：<span class="pname">${arr[i].pname}</span></p>
 					<p>￥<span class="price">${arr[i].price}</span></p>
 					<p>售出:<span class="sold">699</span>评论:<span class="comments">12</span></p>
@@ -22,13 +22,12 @@
 		})
 
 		$(".list").on("click"," img",function(){
-			location.href=`http://localhost/MyZBirdProject/myzbird/html/zj.html?pid=${$(this).parent("li").attr("pid")}`;
+			location.href=`http://10.9.26.196/MyZBirdProject/myzbird/html/zj.html?pid=${$(this).parent("li").attr("pid")}`;
 		});
 		$(".list").on("click","input",function(){
 			var $img = $("<img>");
 			$fa = $(this).parent().parent().find("img")
 			$img.attr("src",$fa.attr("src"));
-
 			$("body").append($img);
 			$img.css({
 				"width":20,
@@ -37,9 +36,10 @@
 				"left":$fa.offset().left,
 				"top":$fa.offset().top
 			});
+
 			// console.log($(".gwc").offset().left,$(".gwc").offset().top)
 			startMove($img[0],{
-				"left":$(".gwc").offset().left-10,
+				"left":parseInt($(".gwc").offset().left)-10,
 				"top":$(".gwc").offset().top+10
 			},function(){
 				$img.remove();
@@ -47,6 +47,7 @@
 				var pid = $fa.parent().attr("pid");
 				var price = $fa.parent().attr("price");
 				var pname = $fa.parent().attr("pname");
+				var src = $fa.parent().attr("src")
 				var arr =[];
 				if (localStorage.prolist) {
 					var brr = JSON.parse(localStorage.prolist);
@@ -66,20 +67,21 @@
 			if (flag) {
 				var str = JSON.stringify(arr);
 				localStorage.prolist = str;
+				showcart();
 				return;
 			}else{
 				var json = {	
 								"pid" : pid,
 								"pname":pname,
 								"count": 1,
-								"price":price
-
+								"price":price,
+								"src":src
 							}
 				arr.push(json);
-				
 			}
 			var str = JSON.stringify(arr);
 			localStorage.prolist = str;
+			showcart();
 			}.bind(this))
 		});
 

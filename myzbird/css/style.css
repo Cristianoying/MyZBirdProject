@@ -3,6 +3,9 @@
 	padding: 0;
 	
 }
+input{
+	outline:none;
+}
 img{
 	vertical-align:center;
 }
@@ -557,7 +560,7 @@ html,body{
 #posi{
 	width:1180px;
 	height:682px;
-	background:pink;
+	background:#fdeaea;
 	margin:100px auto;
 	border-top:1px solid #000;
 }
@@ -623,6 +626,8 @@ html,body{
 #posi .wdleft{
 	width:700px;
 	height:530px;
+	float:left;
+	position:relative;
 	/*background:red;*/
 }
 #posi .worldmap{
@@ -645,6 +650,66 @@ html,body{
 #posi .wdleft img{
 	position:absolute;
 }
+#posi .wdright{
+	width:480px;
+	float:right;
+	background:#fdeaea;
+	position:relative;
+} 
+#posi .wdright h2{
+	font-weight:lighter;
+	font-size:28px;
+	margin-top:106px;
+	font-family: Arial,"宋体";
+	text-align:center;
+	letter-spacing:5px;
+}
+#posi .wdright span{
+	width:60px;
+	display: block;
+    border-bottom: 1px solid #000;
+    margin: 38px auto 22px;
+}
+#posi .wdright p{
+	text-align:center;
+	width: 100%;
+    height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+    display: inline-block;
+    font-family: Arial,"宋体";
+    color: #000;
+}
+#posi .wdright .sendmsg{
+	width: 300px;
+    height: 38px;
+    line-height: 36px;
+    margin: 0;
+    display:block;
+    padding-left: 10px;
+    background: #fff;
+    margin: 30px auto;
+    border: none;
+    color: #b7b7b7;
+}
+#posi .wdright .gostore{
+	width: 142px;
+    height: 32px;
+    line-height: 32px;
+    display: block;
+    left: 168px;
+    top: 398px;
+    position: absolute;
+    z-index: 5;
+    text-align: center;
+    border:none;
+    background:rgba(246,130,122);
+    color:#fff;
+}
+#posi .wdright .gostore:hover{
+	 background:rgba(246,130,122,.7);
+}
+
 
 
 #drnews{

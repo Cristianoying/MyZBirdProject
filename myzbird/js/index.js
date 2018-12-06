@@ -1,10 +1,19 @@
 $(document).ready(function(){
 
+	//购物车
+
+
+	//gotop
+	$(".gotop").on("click",function(){
+		$("html").stop().animate({"scrollTop":0},1000);
+	})
+
 	//购物车数量
 	showcart();
 	//显示用户名
-
-
+	$("#posi .store").on("mouseenter","a",function(){
+		$("#posi .wdright h2").html($(this).html());
+	})
 	//nav选项卡
 	$(".navxxk").mouseenter(function() {
 		var index = $(this).index();

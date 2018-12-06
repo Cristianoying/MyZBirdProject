@@ -51,11 +51,16 @@
 
 		<div id="cartlist">
 			<ul class="cartlist">
+				<li class="jiesuan">
+					一共：<span class="all"> </span>个；
+					总计：<span class="money"> </span>元
+					<input type="button" name="" value="结算">
+				</li>
 				<li class="cartheader">
 					<span class="pro">商品</span>
 					<span>戒臂内圈刻字</span>
-					<span>时光环刻字</span>
-					<span>手寸</span>
+					<span>全选<input class="ck" type="checkbox"></span>
+					<span>数量</span>
 					<span>原价/元</span>
 					<span> 小计/元</span>
 					<span>操作</span>
@@ -80,6 +85,7 @@
 					</div>
 				</li> -->
 			</ul>
+
 		</div>
 
 		<footer>
@@ -149,31 +155,97 @@
 </body>
 </html>
 <script src="../js/jquery-1.11.1.min.js"></script>
+<script src="../js/public.js"></script>
 <script type="text/javascript">
-	if (localStorage.prolist) {
+	showcart();
+	if (localStorage.prolist !="null") {
 		var arr = JSON.parse(localStorage.prolist);
-		for(var i = 0 ; i < arr.length ; i++){				
-			var $li = $("<li>");
-			var str = `<li>
-			<div class="proname"><img src="http://10.9.26.196/MyZBirdProject/myzbird/img/${arr[i].src}" alt="">
-			<span>${arr[i].pname}</span></div>
-			<div>
-			</div>
-			<div>
-			</div>
-			<div>
-			</div>
-			<div class="price">￥${arr[i].price}元</div>
-			<div class="countall">￥${arr[i].price*arr[i].count}元</div>
-			<div class="del">
-			<a>删除</a>
-			</div>
-			</li>`;
-			$li.html(str);
-			$(".cartlist").append($li);
+		for(var i = 0 ; i < arr.length ; i++){	
+			if (arr[i].count==0) {
+				continue;
+			}else{			
+				var $li = $("<li>");
+				var str = `<li class="jiesuan">
+				<div class="proname"><img src="http://10.9.26.196/MyZBirdProject/myzbird/img/${arr[i].src}" alt="">
+				<span>${arr[i].pname}</span></div>
+				<div>
+				</div>
+				<div><input class="cks" type="checkbox" >
+				</div>
+				<div class="nowcount">
+				${arr[i].count}
+				</div>
+				<div class="price">${arr[i].price}</div>
+				<div class="countall">${arr[i].price*arr[i].count}</div>
+				<div class="del">
+				<a  pid=${arr[i].pid}>删除 </a><span contenteditable='true' type="number"></span>个
+				</div>
+				</li>`;
+				$li.html(str);
+				$(".cartlist").append($li);
+			}
 		}
 	}
 
 
+//删除购物车物品操作
+$(".del").on('click', 'a', function(event) {
+	event.preventDefault();
+	var username = localStorage.username;
+	var delcount = 1;
+	var arr =[];
+	var pid = $(this).attr("pid");
+	console.log($(this))
+	if ($(".del span").html()) {
+		delcount = $(".del span").html();
+	}
+	if (localStorage.prolist) {
+		var brr = JSON.parse(localStorage.prolist);
+		for(var i = 0 ; i < brr.length ; i++){			
+			if (brr[i].pid == pid) {
+				brr[i].count-=delcount;
+				$(this).parent().parent().parent().find('.nowcount').html(brr[i].count);
+				if (brr[i].count<=0) {
+					$(this).parent().parent().parent().remove();
+					continue;
+				}else{
+					arr.push(brr[i]);
+					continue;
+				}
+			}
+			arr.push(brr[i]);
+			// console.log(brr[i].count);
+		}
+	}
+	var str = JSON.stringify(arr);
+	console.log(str);
+	localStorage.prolist = str;
+	showcart();
+});
+//结算操作
+$(".ck").on('click', function() {
+	$(".cks").prop("checked",$(this).prop("checked"));
+	jiesuan();
+});
+$(".cks").on("click",function(){
+	jiesuan();
+})
+function jiesuan(){
+	var money = 0,all=0;
+	$(".money").html(0);
+	$(".all").html(0);
+	$(".nowcount").each(function(index){
+		if ($(".cks").eq(index).prop("checked")) {
+			// console.log(index);
+			index += 1;
+			// console.log($(".cartlist .jiesuan").eq(index));
+			money += parseInt($(".cartlist .jiesuan").eq(index).find(".countall").html());
+			all += parseInt($(".cartlist .jiesuan").eq(index).find(".nowcount").html())
+		}
+	}.bind($(".nowcount")))
+	$(".money").html(money);
+	$(".all").html(all);
+}
+jiesuan();
 
 </script>

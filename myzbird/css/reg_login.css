@@ -1,6 +1,9 @@
 body{
 	background:rgb(250,222,218);
 }
+input{
+	outline:none;
+}
 #main{
 	width:1180px;
 	height:688px;

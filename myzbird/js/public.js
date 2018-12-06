@@ -32,7 +32,7 @@ function startMove( obj , json , callback ){
 				obj.style[attr] = current + speed + "px";
 			}
 		}
-			
+
 		if( flag ){//达到目标值
 			clearInterval( obj.timer );
 			//进入到下一个动作（可变功能）
@@ -71,7 +71,7 @@ function lunbo($imgs,t,$dots){
 		if ($dots) {
 			$dots.eq(index).css("background","pink").siblings().css("background","");
 		}
-	 
+
 		$imgs.eq(index).fadeIn("slow").siblings('img').fadeOut("slow");
 		// $imgs.eq(index).css("display","block").siblings('img').css("display","none");
 		index++;
@@ -85,11 +85,11 @@ function lunbo($imgs,t,$dots){
 //$xxkdiv 显示的标签集合
 function xxk($xxk,$xxkdiv,class1){
 	$xxk.mouseenter(function() {
-		 var index = $(this).index();
+		var index = $(this).index();
 		 // console.log(index)
 		 // console.log($("#navbottom div").eq(index))
-		$xxkdiv.eq(index).css("display","block").siblings(class1).css("display","none");
-	})
+		 $xxkdiv.eq(index).css("display","block").siblings(class1).css("display","none");
+		})
 	// .mouseleave(function() {
 		// $xxkdiv.css("display","none");
 	// });
@@ -124,30 +124,41 @@ function lunbo2($xxk,t){
 //封装函数，显示购物车里面的内容
 function showcart(){
 	var procount =0;
-	if (localStorage.prolist) {
+	$(".gwclist").html(" ");
+	if (localStorage.prolist != "null") {
 		var brr = JSON.parse(localStorage.prolist);
-		for(var i = 0 ; i < brr.length ; i++){				
-				procount += brr[i].count;
-				var $li = $("<li>");
-				var str = `<li>名称：${brr[i].pname}<span> 数量：${brr[i].count}</span></li>`;
-				$li.html(str);
-				$(".gwclist").append($li);
-				$(".gwclist").css("z-index",9)
+		if (brr) {
+			for(var i = 0 ; i < brr.length ; i++){	
+				if (brr[i].count>0) {
+					procount += brr[i].count;
+					var $li = $("<li>");
+					var str = `<li>名称：${brr[i].pname}<span> 数量：${brr[i].count}</span></li>`;
+					$li.html(str);
+					$(".gwclist").append($li);
+					$(".gwclist").css("z-index",9)
+				}			
+			}
 		}
+		
 		$(".procount").html(procount);				
 	}
 
-		function fn(){
+//显示用户名
+	function fn(){
 		// console.log("自己执行");
-		console.log(localStorage.username);
+		// console.log(localStorage.username);
 		if (localStorage.username) {
-			console.log($(".hrleft a").eq(0));
+			// console.log($(".hrleft a").eq(0));
 			$(".htleft a").eq(0).html(localStorage.username);
 			$(".htleft a").eq(1).html(`您是普通会员`);
 			$(".htleft a").eq(2).html(`退出登录`);
 		}
 	}
 	setTimeout(fn,200);
+//转向购物车
+	$(".gwc").click(function(){
+		location.href="http://10.9.26.196/MyZBirdProject/myzbird/html/cart.html";
+	})
 
 	//退出登录
 	$(".htleft a").eq(2).on("click",function(){

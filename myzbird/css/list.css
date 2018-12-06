@@ -1,6 +1,16 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
+}
+
+b, h2, i {
+  font-style: normal;
+  font-weight: normal;
+}
+
+input {
+  outline: none;
 }
 
 #list {
@@ -88,10 +98,13 @@
   overflow: hidden;
 }
 #product .pright .big img {
-  vertical-align: middle;
   width: 480px;
   height: 386px;
   position: absolute;
+}
+
+body {
+  background: #fff;
 }
 
 #detail {
@@ -113,6 +126,7 @@
   width: 200px;
   height: 270px;
   position: relative;
+  float: left;
 }
 #detail .detail img {
   position: absolute;
@@ -144,11 +158,72 @@
   width: 200px;
   height: 200px;
   overflow: hidden;
+  display: none;
+  background: #fff;
+  z-index: 99;
 }
 #detail .big img {
   position: absolute;
   width: 400px;
   height: 400px;
+}
+#detail .jieshao {
+  width: 535px;
+  height: 435px;
+  float: right;
+  position: relative;
+}
+#detail .jieshao div {
+  font-size: 12px;
+  font-family: Arial,"瀹嬩綋";
+  color: #999;
+  text-align: left;
+  padding: 20px 0 28px 0;
+  border-bottom: 1px solid #f1f1f1;
+  margin-bottom: 26px;
+}
+#detail .jieshao i {
+  display: inline-block;
+  width: 80px;
+  line-height: 29px;
+  height: 29px;
+  color: #999;
+  font-size: 12px;
+  font-family: Arial,"瀹嬩綋";
+}
+#detail .jieshao span {
+  color: #999;
+  vertical-align: middle;
+}
+#detail .jieshao a {
+  color: #999;
+  font-size: 12px;
+  line-height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 10px;
+  display: block;
+  height: 40px;
+  position: relative;
+  bottom: -100px;
+  left: -8px;
+}
+#detail .jieshao a input {
+  color: #fff !important;
+  background: #ff8a81;
+  border: none;
+  width: 188px;
+  height: 32px;
+  line-height: 32px;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  border-bottom: 1px solid #ff8a81;
+}
+#detail .jieshao a b {
+  width: 286px;
+  font-size: 12px;
+  height: 40px;
 }
 
 #cartlist {
@@ -157,6 +232,21 @@
   height: auto;
   margin: 0 auto;
   text-align: center;
+}
+#cartlist .jiesuan {
+  width: 100%;
+  background: pink;
+}
+#cartlist .jiesuan span {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+  line-height: 50px;
+}
+#cartlist .jiesuan input {
+  width: 50px;
+  height: 30px;
+  background: #ffa3a3;
 }
 #cartlist .cartheader {
   width: 1137px;

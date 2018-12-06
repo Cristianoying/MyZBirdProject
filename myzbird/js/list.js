@@ -25,6 +25,7 @@
 			location.href=`http://10.9.26.196/MyZBirdProject/myzbird/html/zj.html?pid=${$(this).parent("li").attr("pid")}`;
 		});
 		$(".list").on("click","input",function(){
+			$(".gwclist").html(" ");
 			var $img = $("<img>");
 			$fa = $(this).parent().parent().find("img")
 			$img.attr("src",$fa.attr("src"));
@@ -40,7 +41,7 @@
 			// console.log($(".gwc").offset().left,$(".gwc").offset().top)
 			startMove($img[0],{
 				"left":parseInt($(".gwc").offset().left)-10,
-				"top":$(".gwc").offset().top+10
+				"top":parseInt($(".gwc").offset().top+10)
 			},function(){
 				$img.remove();
 				var flag = false;
@@ -49,7 +50,7 @@
 				var pname = $fa.parent().attr("pname");
 				var src = $fa.parent().attr("src")
 				var arr =[];
-				if (localStorage.prolist) {
+				if (localStorage.prolist != "null") {
 					var brr = JSON.parse(localStorage.prolist);
 					for(var i = 0 ; i < brr.length ; i++){				
 							if (brr[i].pid == pid) {
